@@ -8,6 +8,3 @@ import renderMain from "./components/main";
 
 const body = document.body;
 
-body.append(renderHeader());
-body.append(renderMain());
-body.append(renderFooter());

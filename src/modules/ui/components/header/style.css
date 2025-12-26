@@ -1,13 +1,15 @@
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
 header img {
   border-radius: 4px;
-  box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.1),
-    0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 .portrait {
   margin: 0 1em;
-  outline: 1px solid #666;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,11 +17,11 @@ header img {
 
   img {
     filter: brightness(0.8);
+    box-shadow: var(--base-shadow);
   }
 
   h1 {
-    font-size: 51px;
-    font-weight: 200;
+    font-size: 3rem;
     text-align: left;
     margin: 0.2em 0.3em;
     text-shadow:
@@ -32,21 +34,9 @@ header img {
 }
 
 header h2 {
-  font-size: 2em;
-  text-align: center;
-  margin: 0.7em 0 0.5em;
+  margin-top: 0.2em;
 }
 
 header p {
   text-align: left;
-}
-
-.links {
-  margin-top: 1em;
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  img {
-    width: 24px;
-  }
 }

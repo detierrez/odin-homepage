@@ -1,2 +1,63 @@
 main {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.project-card {
+  display: grid;
+  gap: 0.8em;
+  grid-template:
+    "shot  shot"
+    "title links"
+    "desc  desc" 
+    / 1fr max-content;
+
+  align-items: center;
+  align-content: center;
+
+  .screenshot {
+    grid-area: shot;
+  }
+
+  h3 {
+    grid-area: title;
+  }
+
+  .links {
+    grid-area: links;
+  }
+
+  p {
+    grid-area: desc;
+  }
+}
+
+.project-card {
+  box-shadow: var(--base-shadow);
+}
+
+.project-card .screenshot {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background-color: rgb(182, 208, 255);
+  aspect-ratio: 1;
+  color: white;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.project-card {
+  --margin-sides: 1em;
+  padding-bottom: 2em;
+  h3,
+  p {
+    margin-left: var(--margin-sides);
+  }
+
+  .links,
+  p {
+    margin-right: var(--margin-sides);
+  }
 }

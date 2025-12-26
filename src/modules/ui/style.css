@@ -17,10 +17,14 @@
 }
 
 :root {
-  --custom-variable: 1px;
   --header-font: "playfair-display";
   --main-font: "open-sans";
   --main-font-color: #444;
+  --shadow-color: 50 50 50;
+  --base-shadow:
+    1px 2px 2px hsl(var(--shadow-color) / 0.333),
+    2px 4px 4px hsl(var(--shadow-color) / 0.333),
+    3px 6px 6px hsl(var(--shadow-color) / 0.333);
 }
 
 h1,
@@ -30,15 +34,30 @@ h4,
 h5,
 h6 {
   font-family: var(--header-font);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.2rem;
+  text-align: center;
 }
 
 body {
   font-family: var(--main-font);
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 
 p {
   color: var(--main-font-color);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  img {
+    width: 24px;
+  }
 }
 
 /* Layout */
@@ -46,17 +65,5 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1em;
-}
-
-/* Paint */
-header {
-  /* border: 1px solid #922; */
-}
-
-main {
-  border: 1px solid #292;
-}
-
-footer {
-  border: 1px solid #229;
+  gap: 2em;
 }
