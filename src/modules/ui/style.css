@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "playfair-display";
+  src:
+    url("@fonts/playfair-display.woff2") format("woff2"),
+    url("@fonts/playfair-display.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "open-sans";
+  src:
+    url("@fonts/open-sans.woff2") format("woff2"),
+    url("@fonts/open-sans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --custom-variable: 1px;
+  --header-font: "playfair-display";
+  --main-font: "open-sans";
+  --main-font-color: #444;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--header-font);
+}
+
+body {
+  font-family: var(--main-font);
+  font-size: 18px;
+}
+
+p {
+  color: var(--main-font-color);
+}
+
+/* Layout */
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+/* Paint */
+header {
+  /* border: 1px solid #922; */
+}
+
+main {
+  border: 1px solid #292;
+}
+
+footer {
+  border: 1px solid #229;
+}

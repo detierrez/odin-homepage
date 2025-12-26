@@ -38,3 +38,7 @@ button {
   outline: none;
   cursor: pointer;
 }
+
+html {
+  overflow-y: scroll;
+}
