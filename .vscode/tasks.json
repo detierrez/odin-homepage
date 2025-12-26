@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Scaffold New Component",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "-c",
+        "name=\"${input:componentName}\"; dir=\"src/modules/ui/components/$name\"; mkdir -p \"$dir\"; printf 'import \"./style.css\";\n\nexport default function render%s() {\n  const %s = document.createElement(\"div\");\n  %s.classList.add(\"%s\");\n\n  return %s;\n}' \"$name\" \"$name\" \"$name\" \"$name\" \"$name\" > \"$dir/index.js\"; printf '.%s {\n\n}' \"$name\" > \"$dir/style.css\"; echo \"Component $name created at $dir\""
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Odin Container",
+      "type": "process",
+      "command": "podman",
+      "args": [
+        "run",
+        "--rm",
+        "-it",
+        "--name",
+        "odin",
+        "--replace",
+        "--network",
+        "host",
+        "-v",
+        "${workspaceFolder}:/app:Z",
+        "-v",
+        "/app/.git",
+        "-w",
+        "/app",
+        "node:24-trixie",
+        "bash"
+      ],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Run NPM Script (Container)",
+      "type": "process",
+      "command": "podman",
+      "args": ["exec", "-it", "odin", "npm", "run", "npmScript"],
+      "presentation": {
+        "group": "build",
+        "panel": "dedicated"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "npmScript",
+      "type": "pickString",
+      "description": "Select npm script",
+      "options": ["dev", "start", "test", "build", "lint"],
+      "default": "dev"
+    },
+    {
+      "id": "componentName",
+      "description": "Enter the component name (e.g., Header, Sidebar)",
+      "default": "NewComponent",
+      "type": "promptString"
+    }
+  ]
+}
