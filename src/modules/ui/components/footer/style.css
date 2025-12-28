@@ -1,29 +1,79 @@
 footer {
   position: relative;
+
+  &::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50vw);
+    height: 100%;
+    width: 100vw;
+    background-color: var(--highlight-color);
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  padding-top: 2em;
+
+  .contact {
+    flex: 1 1 40%;
+  }
+
+  picture {
+    flex: 2 1 300px;
+  }
+}
+
+@media (width > 480px) {
+  footer {
+    flex-direction: row;
+    padding-bottom: 2em;
+  }
+
+  footer .contact {
+    h2 {
+      text-align: left;
+    }
+  }
+}
+
+@media (width > 768px) {
+  footer .contact {
+    align-self: flex-start;
+  }
+}
+
+.contact {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding-top: 2em;
+  justify-content: space-evenly;
+  border: 4px solid green;
 }
 
-footer::before {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: calc(50% - 50vw);
-  height: 100%;
-  width: 100vw;
-  background-color: var(--highlight-color);
-}
-
+/* Paint */
 footer,
 footer p {
   color: #fff;
 }
 
-footer .links img {
+/* Compose */
+.contact img {
   filter: invert(1);
+}
+
+.contact-info {
+  img {
+    height: 1.2em;
+    display: inline;
+    vertical-align: middle;
+  }
 }
 
 /* footer > img {
