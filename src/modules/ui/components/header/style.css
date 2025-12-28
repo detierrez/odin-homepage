@@ -1,7 +1,9 @@
 header {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 0.5em;
+  border: 2px solid blue;
 }
 
 header img {
@@ -14,6 +16,7 @@ header img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: calc(230px + 20vw);
 
   img {
     filter: brightness(0.8);

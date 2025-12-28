@@ -1,16 +1,32 @@
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+main h2 {
+  margin-bottom: 0.2em;
+}
+
+@media (min-width: 481px) {
+  main h2 {
+    text-align: left;
+  }
+}
+
+.projects {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  gap: 2em;
 }
 
 .project-card {
+  max-width: 350px;
   display: grid;
   gap: 0.8em;
   grid-template:
     "shot  shot"
     "title links"
-    "desc  desc" 
+    "desc  desc"
     / 1fr max-content;
 
   align-items: center;
@@ -42,7 +58,7 @@ main {
   place-content: center;
   text-align: center;
   background-color: rgb(182, 208, 255);
-  aspect-ratio: 1;
+  aspect-ratio: 1.2;
   color: white;
   font-size: 2rem;
   font-weight: 800;
@@ -61,3 +77,4 @@ main {
     margin-right: var(--margin-sides);
   }
 }
+

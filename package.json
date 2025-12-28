@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "webpack serve --open --config webpack.dev.js",
+    "dev": "webpack serve --host 0.0.0.0 --open --config webpack.dev.js",
     "prebuild": "git checkout gh-pages && git merge main --no-edit",
     "build": "webpack --config webpack.prod.js",
     "predeploy": "npm run build && git add dist -f && git commit -m 'Deployment commit'",
