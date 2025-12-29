@@ -1,22 +1,11 @@
-header {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.5em;
-  border: 2px solid blue;
-}
-
-header img {
-  border-radius: 4px;
-}
-
 .portrait {
   margin: 0 1em;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* max-width: calc(230px + 20vw); */
+
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: calc(230px + 20vw);
 
   img {
     filter: brightness(0.8);
@@ -24,22 +13,94 @@ header img {
   }
 
   h1 {
-    font-size: 3rem;
+    position: absolute;
+    font-size: clamp(2.5rem, 2.777vw + 26.666px, 3rem);
     text-align: left;
-    margin: 0.2em 0.3em;
     text-shadow:
       3px 2px 2px rgba(0, 0, 0, 0.2),
       3px 2px 1px rgba(0, 0, 0, 0.4);
     color: #fff;
-    position: absolute;
-    bottom: 0;
+    bottom: 0.5em;
+    left: 0.3em;
   }
 }
 
 header h2 {
-  margin-top: 0.2em;
+  margin-bottom: 0.5em;
 }
 
 header p {
-  text-align: left;
+  margin-bottom: 1em;
+}
+
+@media (width<=480px) {
+  picture {
+    margin-bottom: 1em;
+  }
+}
+
+@media (width>480px) {
+  header {
+    margin-top: 9em;
+    display: block;
+  }
+
+  .portrait {
+    min-height: calc(50px + 20vw);
+    width: 45%;
+    float: left;
+    display: grid;
+    place-content: center;
+
+    position: relative;
+
+    transform-origin: bottom right;
+    --scale-factor: 1.30;
+    --inverse-scale-factor: calc(1 / var(--scale-factor));
+    transform: scale(var(--scale-factor));
+    h1 {
+      --translate-coodrs: 0, 0;
+      transform: scale(var(--inverse-scale-factor))
+        translate(var(--translate-coodrs));
+    }
+  }
+
+  .links {
+    justify-content: flex-end;
+  }
+}
+
+@media (480px < width <= 768px) {
+  .portrait h1 {
+    width: max-content;
+    bottom: unset;
+    left: unset;
+    top: 0;
+    right: 0;
+    --translate-coodrs: 100%, -50%;
+  }
+}
+
+@media (width>768px) {
+  .portrait {
+    width: 40%;
+    height: 350px;
+    transform-origin: right;
+  }
+}
+
+@media (width>480px) {
+  header {
+    padding: 2em;
+    background-color: #fff;
+    box-shadow: var(--base-shadow);
+  }
+}
+
+@media (width>768px) {
+  header {
+    h2 {
+      text-align: left;
+    }
+  }
 }
